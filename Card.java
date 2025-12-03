@@ -7,5 +7,30 @@
  * andere Karte hat.
  */
 public class Card {
-    
+
+    Suit Suit;
+    Rank Rank;
+
+    public Card(Rank Rank, Suit Suit){
+        this.Rank = Rank;
+        this.Suit = Suit;
+    }
+
+    @Override
+    public String toString() {
+        return "Card is"+ this.Rank + this.Suit ;
+    }
+    @Override
+    public equals(Object Card){
+        if(this.Card == Card){
+
+        } else{
+            if (this.Rank == Card){
+
+            }
+            
+        }
+        
+    }
+
 }
