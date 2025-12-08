@@ -6,5 +6,10 @@
  * Danach sollen alle Karten auf der Konsole ausgegeben werden.
  */
 public class Jass {
-    
+    public static void main(String[] args) {
+        Deck d = new Deck();
+        Card c = new Card( Rank.ASS , Suit.ROSEN);
+        d.addCard(c);
+        System.out.println(d.cards.length);
+    }
 }
