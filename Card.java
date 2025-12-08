@@ -8,29 +8,21 @@
  */
 public class Card {
 
-    Suit Suit;
-    Rank Rank;
+    Suit suit;
+    Rank rank;
 
     public Card(Rank Rank, Suit Suit){
-        this.Rank = Rank;
-        this.Suit = Suit;
+        this.rank = Rank;
+        this.suit = Suit;
     }
 
     @Override
     public String toString() {
-        return "Card is"+ this.Rank + this.Suit ;
+        return "Card is"+ this.rank + this.suit ;
     }
-    @Override
-    public equals(Object Card){
-        if(this.Card == Card){
-
-        } else{
-            if (this.Rank == Card){
-
-            }
-            
-        }
-        
+    
+    public boolean equals(Card card){
+        return this.suit == card.suit && this.rank == card.rank;
     }
 
 }
