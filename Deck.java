@@ -49,7 +49,7 @@ public class Deck {
         boolean add = true;
         if(cards.length != 0){
             for(int i = 0; i < cards.length ; i++ ){
-                if(cards[i] == card){
+                if(cards[i].equals(card)){
                     add = false;
                 }
             }  
@@ -60,7 +60,7 @@ public class Deck {
             cards[cards.length -1] = card;
         }
         else{
-            System.out.println("die Karte"+ card +"ist bereits im Stapel und wird nicht hinzugefügt");
+            System.out.println("die Karte "+ card +" ist bereits im Stapel und wird nicht hinzugefügt");
         } 
     }
 
@@ -69,6 +69,22 @@ public class Deck {
         return cards;
     }
 
+    public void pop(){
+        if (cards.length != 0){
+            cards = Arrays.copyOf(cards, cards.length -1);
+        }
+    }
+
+    public void shuffle(){
+        for (int i = 0; i < 36; i++){
+            Random rnd = new Random();
+            int nummer = rnd.nextInt(35);
+            Card karte1 = cards[i];
+            Card karte2 = cards[nummer];
+            cards[i] = karte2;
+            cards[nummer]= karte1;
+        }
+    }
 
 
 }

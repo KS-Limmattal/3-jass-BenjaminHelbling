@@ -18,7 +18,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card is"+ this.rank + this.suit ;
+        return this.rank + " " + this.suit ;
     }
     
     public boolean equals(Card card){
