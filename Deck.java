@@ -29,6 +29,7 @@ public class Deck {
     
     Card[] cards = new Card[0];
 
+
     // Deck erstellen mit Karten mit Namen
     public Deck(Card[] cards){
         this.cards = cards;
@@ -78,13 +79,12 @@ public class Deck {
     public void shuffle(){
         for (int i = 0; i < 36; i++){
             Random rnd = new Random();
-            int nummer = rnd.nextInt(35);
+            int nummer = rnd.nextInt(cards.length);
             Card karte1 = cards[i];
             Card karte2 = cards[nummer];
             cards[i] = karte2;
             cards[nummer]= karte1;
         }
     }
-
 
 }
