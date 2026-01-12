@@ -7,22 +7,13 @@ import java.util.Arrays;
  * werden und anschliessend das EICHELN ASS hinzugefügt werden
  * Danach sollen alle Karten auf der Konsole ausgegeben werden.
  */
-public class Jass {
-
-    Deck[] handCards = new Deck[4];
-    
-    public static void distributecards( Deck deck, Deck[] handCards){
-        // ich werde in der Nächsten stunde die pop funktion erweitern das sie sich die gezogene karte merkt um sie dann in zu distribute cards hinzuzufügen.
-    }
+public class Jass {   
 
     public static void main(String[] args) {
+        Deck[] handKarten = new Deck[]{new Deck(new Card[0]), new Deck(new Card[0]), new Deck(new Card[0]), new Deck(new Card[0])};
         Deck d = new Deck();
-        Card c = new Card( Rank.ASS , Suit.ROSEN);
         d.shuffle();
-        for(int i = 0; i< 30 ; i++){
-            d.pop();
-        }
-        d.addCard(c);
-        System.out.println(Arrays.toString(d.getCards()));
+        Deck.distributecards(d, handKarten);
+        System.out.println(Arrays.toString(handKarten[0].getCards()));
     }
 }

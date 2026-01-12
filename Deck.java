@@ -70,9 +70,15 @@ public class Deck {
         return cards;
     }
 
-    public void pop(){
+    public Card pop(){
+        Card gezogen = new Card(null,null);
         if (cards.length != 0){
+            gezogen = cards[cards.length-1];
             cards = Arrays.copyOf(cards, cards.length -1);
+            return gezogen;
+        }
+        else{
+            return null;
         }
     }
 
@@ -84,6 +90,47 @@ public class Deck {
             Card karte2 = cards[nummer];
             cards[i] = karte2;
             cards[nummer]= karte1;
+        }
+    }
+
+    public static Suit suit;
+
+    public void validCards(Deck played){
+        // eine Deck erstellen mit einem Array von spielbaren Karten
+        Deck playable = new Deck(new Card[0]);
+
+        if (played.cards.length == 0){
+            for (int i = 0 ; i < this.cards.length; i++){
+                playable.addCard(this.cards[i]);
+            }
+            
+        }
+        else{
+            for (int i = 0; i < played.cards.length; i ++){
+                if(played.cards[i].suit ==  suit ){
+                    for (int j =0; j < cards.length; j++){
+                        if (cards[j].suit == suit){
+                            playable.addCard(this.cards[j]);
+                        }
+                    }
+                }
+            }
+        }
+        if (playable.cards.length == 0){
+            for (int i = 0 ; i < this.cards.length; i++){
+                playable.addCard(this.cards[i]);
+            }
+        }
+        System.out.println(Arrays.toString(playable.getCards()));
+    }
+    
+    public static void distributecards( Deck deck, Deck[] handCards){
+        for (int i = 0; i < deck.cards.length; i++ ){
+            for (int j =0; j<4; j++){
+                Card gezogen = new Card(null,null);
+                gezogen = deck.pop();
+                handCards[j].addCard(gezogen);
+            }
         }
     }
 
